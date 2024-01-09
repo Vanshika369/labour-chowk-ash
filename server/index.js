@@ -3,6 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./utils/db");
 const workerRoutes = require("./routes/worker");
+const employerRoutes = require("./routes/employer");
+
 
 const app = express();
 const PORT = process.env.PORT || 5500;
@@ -15,6 +17,9 @@ connectDB();
 
 // Worker routes
 app.use("/api/worker", workerRoutes);
+
+// Employer Routes
+app.use("/api/employer", employerRoutes)
 
 // Routes
 app.get("/", (req, res) => {

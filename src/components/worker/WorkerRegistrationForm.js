@@ -2,9 +2,12 @@
 
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const WorkerRegistrationForm = () => {
+
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -47,6 +50,7 @@ const WorkerRegistrationForm = () => {
         address: "",
         skills: [],
       });
+      navigate('/login')
     } catch (error) {
       // Handle registration error
       console.error("Error registering worker:", error.response.data.error);
@@ -55,8 +59,8 @@ const WorkerRegistrationForm = () => {
   };
 
   return (
-    <div className="register-container">
-      <h2>Worker Registration</h2>
+    <div>
+      <h2>User Registration</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Name:
@@ -167,14 +171,10 @@ const WorkerRegistrationForm = () => {
           </div>
         </label>
         <br />
-        <div className="register-form">
-          <button className='register-btn' type="submit">Register</button>
-        </div>
-
-        <p>Already have an Account? <Link to={"/login"}>Login</Link></p>
+        <button type="submit">Register</button>
       </form>
     </div>
   );
 };
- 
+
 export default WorkerRegistrationForm;
