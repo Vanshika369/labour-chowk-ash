@@ -4,7 +4,6 @@ import WorkerRegistrationForm from "../../components/worker/WorkerRegistrationFo
 const WorkerRegister = () => {
   return (
     <div>
-      <h2>Welcome to the Home Page</h2>
       <WorkerRegistrationForm />
     </div>
   );

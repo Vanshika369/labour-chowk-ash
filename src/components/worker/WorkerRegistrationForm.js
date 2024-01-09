@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const WorkerRegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -54,8 +55,8 @@ const WorkerRegistrationForm = () => {
   };
 
   return (
-    <div>
-      <h2>User Registration</h2>
+    <div className="register-container">
+      <h2>Worker Registration</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Name:
@@ -166,10 +167,14 @@ const WorkerRegistrationForm = () => {
           </div>
         </label>
         <br />
-        <button type="submit">Register</button>
+        <div className="register-form">
+          <button className='register-btn' type="submit">Register</button>
+        </div>
+
+        <p>Already have an Account? <Link to={"/login"}>Login</Link></p>
       </form>
     </div>
   );
 };
-
+ 
 export default WorkerRegistrationForm;
